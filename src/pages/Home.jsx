@@ -9,7 +9,6 @@ const SEARCH_API =
 
 export default function () {
   const [movies, setMovies] = useState([]);
-
   
   useEffect(() => {
     getMovies(FEATURE_API);
@@ -19,13 +18,14 @@ export default function () {
     fetch(API)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.results)
         setMovies(data.results);
       });
   };
-
+  
   return (
     <div>
-      <Movies movies={movies} />
+      {(movies!=[])?<Movies movies={movies}/>:"<p>Cargando<p/>"}
     </div>
   );
 }
