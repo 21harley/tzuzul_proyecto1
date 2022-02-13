@@ -3,6 +3,8 @@ import "./../css/nav.css";
 import Hamburger from "./Hamburger";
 
 export default function Navbar() {
+
+
   // const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   // const toggleHamburger = () => {
@@ -12,15 +14,19 @@ export default function Navbar() {
   return (
     <div>
       <div className="navigation">
+      <div className="logo"></div>
+      {/*
         <ul>
           <li>Inicio</li>
           <li>Genero</li>
           <li>Peliculas</li>
           <button className="btn">Registro</button>
         </ul>
+      */}
         <div className="hamburger">
           <Hamburger />
         </div>
+        
       </div>
 
       {/* <style jsx>{`

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Footer from "../components/footer";
 import Movies from "../components/Movies";
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
@@ -29,8 +30,8 @@ export default function () {
     <div>
       <Navbar/>
       <Slider />
-
       {movies != [] ? <Movies movies={movies} /> : "<p>Cargando<p/>"}
+      <Footer/>
     </div>
   );
 }

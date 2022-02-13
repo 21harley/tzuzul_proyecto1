@@ -1,0 +1,19 @@
+@import "/src/css/styleColor.css";
+
+.footer{
+    height: 100px;
+    display: grid;
+    place-items: center;
+}
+.logo-footer{
+    width: 180px;
+    height: 40px;
+    background-image: url(../svg/logo_footer.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.footer-des{
+    font-size: 10px;
+    text-align: center;
+    color: var(--Color-azul-claro);
+}

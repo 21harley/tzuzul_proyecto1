@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+@import "/src/css/styleColor.css";
 
 *{
   box-sizing: border-box;
 }
 
 body{
-  background-color: rgb(78, 7, 7);
-  color: white;
+  background-color: var(--Color-azul-fondo);
+  color: var(--Color-text-blanco);
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
@@ -17,7 +18,7 @@ body{
 }
 
 header{
-  background-color: #373b69;
+  background-color: var(--Color-azul-claro);
   display: flex;
   padding: 1rem;
   justify-content: flex-end;
@@ -25,9 +26,9 @@ header{
 
 .search{
   background-color: transparent;
-  border: 2px solid #22254b;
+  border: 2px solid var(--Color-azul-claro);
   border-radius: 50px;
-  color: white;
+  color: var(--Color-text-blanco);
   font-family: inherit;
   font-size: 1.2rem;
   padding: 0.5rem 1.5rem;
@@ -38,20 +39,21 @@ header{
 }
 
 .movie-container{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,130px);
+  place-items: center;
 }
 .movie{
-  background-color: #3b47c5;
-  border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   position: relative;
-  margin: 1rem;
-  width: 300px;
+  margin: 0;
+  width: 120px;
+  text-align: center;
 }
-
 .movie img {
   max-width: 100%;
+}
+.movie h3{
+  font-size: 50%;
 }
