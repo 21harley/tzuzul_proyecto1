@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
+import { moviesContext } from '../context/MoviesContext';
 import Footer from "../components/footer";
 import Movies from "../components/Movies";
 import Navbar from "../components/Navbar";
@@ -9,9 +10,11 @@ const FEATURE_API =
 
 
 
-export default function () {
-  const [movies, setMovies] = useState([]);
-
+export default function Home() {
+  /*const [movies1, setMovies1] = useState([]);*/
+  const {movies} = useContext(moviesContext)
+  /*
+  console.log(movies);
   useEffect(() => {
     getMovies(FEATURE_API);
   }, []);
@@ -21,10 +24,10 @@ export default function () {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.results);
-        setMovies(data.results);
+        setMovies1(data.results);
       });
   };
-
+*/
   return (
     <div>
       <Navbar/>
