@@ -1,19 +1,62 @@
 @import "/src/css/styleColor.css";
 
-.footer{
-    height: 100px;
-    display: grid;
-    place-items: center;
+.footer {
+  height: 100px;
+  display: grid;
+  place-items: center;
 }
-.logo-footer{
-    width: 180px;
-    height: 40px;
-    background-image: url(../svg/logo_footer.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
+.logo-footer {
+  width: 180px;
+  height: 40px;
+  background-image: url(../svg/logo_footer.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.footer-des{
-    font-size: 10px;
-    text-align: center;
-    color: var(--Color-azul-claro);
+.rrss-content {
+    display: flex;
+  }
+.facebook-logo {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  background-image: url(../svg/facebook.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 7, 33;
+}
+.twitter-logo {
+  width: 18px;
+  height: 18px;
+  background-image: url(../svg/twitter.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 12.5;
+  
+  
+}
+.instagram-logo {
+  width: 18px;
+  height: 18px;
+  background-image: url(../svg/instagram.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.whatsapp-logo {
+  width: 18px;
+  height: 18px;
+  background-image: url(../svg/whatsapp.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.telegram-logo {
+  width: 18px;
+  height: 18px;
+  background-image: url(../svg/telegram.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.footer-des {
+  font-size: 10px;
+  text-align: center;
+  color: var(--Color-azul-claro);
 }

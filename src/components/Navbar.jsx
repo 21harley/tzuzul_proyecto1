@@ -1,47 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./../css/nav.css";
-import Hamburger from "./Hamburger";
+
+const SEARCH_API =
+  "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
 export default function Navbar() {
+  const [navbar, setNavbar] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [active, setActive] = useState("nav__menu");
+  const [icon, setIcon] = useState("nav__toggler");
 
+  const navToggle = () => {
+    if (active === "nav__menu") {
+      setActive("nav__menu nav__active");
+    } else setActive("nav__menu");
 
-  // const [hamburgerOpen, setHamburgerOpen] = useState(false);
+    // Icon Toggler
+    if (icon === "nav__toggler") {
+      setIcon("nav__toggler toggle");
+    } else setIcon("nav__toggler");
+  };
 
-  // const toggleHamburger = () => {
-  //   setHamburgerOpen(!hamburgerOpen);
-  // };
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+  window.addEventListener("scroll", changeBackground);
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    if (searchTerm) {
+      getMovies(SEARCH_API + searchTerm);
+
+      searchTerm("");
+    }
+  };
+
+  const handleOnChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
-    <div>
-      <div className="navigation">
+    <nav className={navbar ? "nav active" : "nav"}>
       <div className="logo"></div>
-      {/*
-        <ul>
-          <li>Inicio</li>
-          <li>Genero</li>
-          <li>Peliculas</li>
-          <button className="btn">Registro</button>
-        </ul>
-      */}
-        <div className="hamburger">
-          <Hamburger />
-        </div>
-        
+
+      <ul className="nav__menu">
+        <form onSubmit={handleOnSubmit}>
+          <input
+            className="search"
+            type="search"
+            placeholder="Buscar...."
+            value={searchTerm}
+            onChange={handleOnChange}
+          />
+        </form>
+        <li className="nav__item">
+          <a href="#" className="nav__link">
+            Inicio
+          </a>
+        </li>
+        <li className="nav__item">
+          <button className="nav__link">Genero</button>
+        </li>
+        <li className="nav__item">
+          <a href="#" className="nav__link">
+            Peliculas
+          </a>
+        </li>
+        <li className="nav__item">
+          <button href="#" className="nav__link">
+            Registro
+          </button>
+        </li>
+        <li className="nav__item">
+          <button href="#" className="nav__link">
+            Entrar
+          </button>
+        </li>
+      </ul>
+      <div onClick={navToggle} className={icon}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
       </div>
-
-      {/* <style jsx>{`
-
-        .navigation ul{
-          display: ${hamburgerOpen ? 'inline' : 'none'};
-          background-color: blue;
-          height: 100vh;
-          width: 50vw;
-          margin-top: 50px;
-          position: absolute;
-        }
-      
-      
-      `}</style> */}
-    </div>
+    </nav>
   );
 }
