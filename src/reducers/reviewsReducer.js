@@ -4,6 +4,7 @@ export const reviewsInitialState = {
 
 export default function reviewsReducer(state,action){
     let newState;
+    console.log(state,action,"reviews")
     switch(action.type){
         case 'addReview':
             const {idMovie,comment} = action

@@ -43,6 +43,7 @@ header{
 .movie-container{
   display: grid;
   grid-template-columns: repeat(auto-fill,130px);
+  gap: 2px;
   place-items: center;
 }
 .movie{
@@ -51,11 +52,35 @@ header{
   position: relative;
   margin: 0;
   width: 120px;
+  height: 180px;
   text-align: center;
+}
+.movie-header{
+  position:absolute;
+  border-radius: 5px;
+  background-color: red;
+  top: 10px;
+  left: 65px;
+  width: 50px;
+  height: 20px;
+}
+.movie-header a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .movie img {
   max-width: 100%;
 }
 .movie h3{
+  margin:0;
   font-size: 50%;
+  display: block;
+}
+.playSvg{
+  width: 11px;
+  height: 12px;
+  background-image: url(../svg/play.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }

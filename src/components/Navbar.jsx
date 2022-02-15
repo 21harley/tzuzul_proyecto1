@@ -47,7 +47,9 @@ export default function Navbar() {
 
   return (
     <nav className={navbar ? "nav active" : "nav"}>
+      <Link to={"/"}>
       <div className="logo"></div>
+      </Link>
 
       <ul className="nav__menu">
         <form onSubmit={handleOnSubmit}>
@@ -60,9 +62,9 @@ export default function Navbar() {
           />
         </form>
         <li className="nav__item">
-          <a href="#" className="nav__link">
-            Inicio
-          </a>
+        <Link to={"/"} className="nav__link">
+          Inicio
+        </Link>
         </li>
         <li className="nav__item">
           <button className="nav__link">Genero</button>

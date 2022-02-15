@@ -13,7 +13,7 @@ export default function MoviesContext({children}) {
 
     const addReview = (movie,stars,comment)=>{
         setMovies({type:'addStars',movie,stars})
-        dispatchReviews({type:'addReview',idMovie:movie._id,comment})
+        dispatchReviews({type:'addReview',idMovie:movie.id,comment})
         // setReviews([...reviews,{id:reviews.length,idMovie:movie.id,comment}])
     }
     //Reto: Cambiar las reviews del estado a reducers
@@ -24,7 +24,6 @@ export default function MoviesContext({children}) {
         .then(data=>{
             console.log(data)
             setMovies({type:"addMovies",movies:data.results})
-            cosole.log(movies)
             //setMovies({type:"addMovies",movies:data})
         })
     },[])
