@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom';
 import "./../css/nav.css";
 
 const SEARCH_API =
@@ -45,6 +46,8 @@ function Navbar() {
 
   return (
     <nav className={navbar ? "nav active" : "nav"}>
+      
+
       <Link to={"/"}>
       <div className="logo"></div>
       </Link>
