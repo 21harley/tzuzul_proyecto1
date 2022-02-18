@@ -54,6 +54,16 @@ a {
   align-items: flex-start;
   justify-content: space-around;
 }
+.main__dark{
+  background-color: rgb(26, 24, 24);
+  color: white;
+}
+
+.main__ligth{
+  background-color: white;
+  color: black;
+} 
+
 .nav__toggler {
   display: none;
 }
