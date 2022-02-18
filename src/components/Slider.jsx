@@ -41,6 +41,7 @@ export default function Slider() {
     <Carousel autoPlay={true} infiniteLoop={true} dynamicHeight={true} showThumbs={false}>
       {movies.map((movie) => (
         <div key={movie.id} className='slider__content--item'>
+		   <div className="modal__slider"></div>
           <img src={movie.image} alt={movie.title}/>
           <p className="Legend">{movie.title}</p>
         </div>
