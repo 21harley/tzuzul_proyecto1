@@ -10,12 +10,14 @@ html {
 body {
   font-size: 1.6rem;
 }
+
 li {
+  width: 100px;
   list-style: none;
 }
 a {
   text-decoration: none;
-  color: rgb(204, 204, 204);
+  color: var(--Color-text-gris);
 }
 .logo {
   width: 120px;
@@ -37,6 +39,7 @@ a {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: 1s all;
 }
 .nav.active {
   background-color: var(--Color-azul-fondo);
@@ -48,9 +51,8 @@ a {
 
 .nav__menu {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
-  gap: 3rem;
 }
 .nav__toggler {
   display: none;
@@ -59,10 +61,30 @@ a {
   width: 2.5rem;
   height: 0.2rem;
   margin: 0.4rem;
-  background: rgb(204, 204, 204);
+  background: var(--Color-text-gris);
   transition: 0.3s ease-in;
 }
 
+.nav__button--registro,
+.nav__button--entrar{
+  background: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  color: var(--Color-text-blanco);
+  cursor: pointer;
+}
+.nav__button--registro{
+  background-color: var(--Color-rojo);
+  width: 100px;
+  height: 30px;
+  border-radius: 25px;
+}
+.nav__item{
+  top: 10px;
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
 @media screen and (max-width: 768px) {
   .nav__toggler {
     display: block;
@@ -80,6 +102,12 @@ a {
     transition: 0.5s ease-in;
   }
 }
+@media screen and (max-width: 480px) {
+  .nav__menu{
+    width: 100vw;
+  }
+}
+
 /* Active Class */
 .nav__active {
   transform: translateX(0%);

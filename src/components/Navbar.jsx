@@ -35,7 +35,6 @@ function Navbar() {
 
     if (searchTerm) {
       getMovies(SEARCH_API + searchTerm);
-
       searchTerm("");
     }
   };
@@ -45,7 +44,7 @@ function Navbar() {
   };
 
   return (
-    <nav className={navbar ? "nav active" : "nav"}>
+    <nav className={ (active === "nav__menu")?((navbar )? "nav active" : "nav"):"nav active"}>
       
 
       <Link to={"/"}>
@@ -78,12 +77,12 @@ function Navbar() {
           </a>
         </li>
         <li className="nav__item">
-          <button href="#" className="nav__link">
+          <button href="#" className="nav__link nav__button--registro">
             Registro
           </button>
         </li>
         <li className="nav__item">
-          <button href="#" className="nav__link">
+          <button href="#" className="nav__link nav__button--entrar">
             Entrar
           </button>
         </li>

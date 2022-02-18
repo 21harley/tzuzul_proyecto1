@@ -70,7 +70,8 @@ header{
   align-items: center;
 }
 .movie img {
-  max-width: 100%;
+ width:100%;
+ height:160px;
 }
 .movie h3{
   margin:0;
