@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import {Link} from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { themeContext } from "../context/ThemeContext";
+
 import "./../css/nav.css";
 
 const SEARCH_API =
@@ -42,59 +44,80 @@ function Navbar() {
   const handleOnChange = (e) => {
     setSearchTerm(e.target.value);
   };
+  const { theme, setTheme } = useContext(themeContext);
 
   return (
-    <nav className={ (active === "nav__menu")?((navbar )? "nav active" : "nav"):"nav active"}>
-      
-
-      <Link to={"/"}>
-      <div className="logo"></div>
-      </Link>
-
-      <ul className={active}>
-      <li className="nav__item">
-        <form onSubmit={handleOnSubmit}>
-          <input
-            className="search"
-            type="search"
-            placeholder="Buscar...."
-            value={searchTerm}
-            onChange={handleOnChange}
-          />
-        </form>
-        </li>
-        <li className="nav__item">
-        <Link to={"/"} className="nav__link">
-          Inicio
+    <div className={theme ? "main__dark" : "main__light"}>
+      <nav
+        className={
+          active === "nav__menu"
+            ? navbar
+              ? "nav active"
+              : "nav"
+            : "nav active"
+        }
+      >
+        <Link to={"/"}>
+          <div className="logo"></div>
         </Link>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Genero
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#" className="nav__link">
-            Peliculas
-          </a>
-        </li>
-        <li className="nav__item">
-          <button href="#" className="nav__link nav__button--registro">
-            Registro
+
+        <ul className={active}>
+          <li className="nav__item">
+            <input
+              onSubmit={handleOnSubmit}
+              className="search"
+              type="search"
+              placeholder="Buscar...."
+              value={searchTerm}
+              onChange={handleOnChange}
+            />
+          </li>
+          <li className="nav__item">
+            <button
+              className="btnanimated"
+              onClick={() => {
+                setTheme(!theme);
+              }}
+            >
+              Claro/Oscuro
+            </button>
+          </li>
+          <li className="nav__item">
+            <Link to={"/"} className="nav__link">
+              Inicio
+            </Link>
+          </li>
+          <li className="nav__item">
+            <a href="#" className="nav__link">
+              Genero
+            </a>
+          </li>
+          <li className="nav__item">
+            <a href="#" className="nav__link">
+              Peliculas
+            </a>
+          </li>
+          <li className="nav__item">
+            <button href="#" className="nav__link nav__button--registro">
+              Registro
+            </button>
+          </li>
+          <li className="nav__item">
+          <button className="nav__button--entrar">
+
+            <Link to={"/login"} className="nav__link nav__button--entrar">
+              Entrar
+            </Link>
           </button>
-        </li>
-        <li className="nav__item">
-          <button href="#" className="nav__link nav__button--entrar">
-            Entrar
-          </button>
-        </li>
-      </ul>
-      <div onClick={navToggle} className={icon}>
-        <div className="line1"></div>
-        <div className="line2"></div>
-        <div className="line3"></div>
-      </div>
-    </nav>
+          </li>
+        </ul>
+        <div onClick={navToggle} className={icon}>
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </div>
+      </nav>
+    </div>
   );
 }
 
