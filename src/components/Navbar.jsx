@@ -52,7 +52,8 @@ function Navbar() {
       </Link>
 
       <ul className={active}>
-        <form onSubmit={handleOnSubmit}>
+      <li className="nav__item">
+      <form onSubmit={handleOnSubmit}>
           <input
             className="search"
             type="search"
@@ -61,6 +62,7 @@ function Navbar() {
             onChange={handleOnChange}
           />
         </form>
+      </li>
         <li className="nav__item">
         <Link to={"/"} className="nav__link">
           Inicio

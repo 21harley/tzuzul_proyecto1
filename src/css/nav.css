@@ -12,7 +12,7 @@ body {
 }
 
 li {
-  width: 100px;
+  margin: 0 5px 0 5px;
   list-style: none;
 }
 a {
@@ -75,9 +75,12 @@ a {
 }
 .nav__button--registro{
   background-color: var(--Color-rojo);
-  width: 100px;
+  width: 80px;
   height: 30px;
   border-radius: 25px;
+}
+.nav__button--entrar{
+  height: 32px;
 }
 .nav__item{
   top: 10px;
@@ -124,7 +127,11 @@ a {
 .toggle .line3 {
   transform: rotate(45deg) translate(-4px, -5px);
 }
-
+.nav__link{
+  height: 32px;
+  display: grid;
+  place-items: center;
+}
 /* 
 *,
 *::after,
