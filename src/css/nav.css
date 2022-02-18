@@ -142,6 +142,9 @@ a {
   display: grid;
   place-items: center;
 }
+.nav__link--registro{
+  color: var(--Color-text-blanco);
+}
 /* 
 *,
 *::after,

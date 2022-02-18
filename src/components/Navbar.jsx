@@ -98,8 +98,10 @@ function Navbar() {
             </a>
           </li>
           <li className="nav__item">
-            <button href="#" className="nav__link nav__button--registro">
-              Registro
+            <button className="nav__link nav__button--registro">
+              <Link to={"/registro"} className="nav__link--registro">
+                  Registro
+              </Link>
             </button>
           </li>
           <li className="nav__item">
