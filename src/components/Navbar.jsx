@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { themeContext } from "../context/ThemeContext";
+import { userContext } from "../context/UserContext";
 
 import "./../css/nav.css";
 
@@ -30,6 +31,7 @@ function Navbar() {
   window.addEventListener("scroll", changeBackground);
 
   const { theme, setTheme } = useContext(themeContext);
+  const {user}= useContext(userContext)
 
   return (
     <div className={theme ? "main__dark" : "main__light"}>
@@ -45,6 +47,7 @@ function Navbar() {
         <Link to={"/"}>
           <div className="logo"></div>
         </Link>
+        <p>{user.logged?"Bienvenido "+user.name:"Desconectado"}</p>
 
         <ul className={active}>
           <li className="nav__item">

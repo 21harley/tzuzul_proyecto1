@@ -2,13 +2,33 @@ import React, {useContext} from "react";
 import Footer from "../components/footer";
 import Navbar from "../components/Navbar";
 import { themeContext } from "../context/ThemeContext";
+import { userContext } from "../context/UserContext";
 import './../css/login.css';
 
 export default function Login(){
    const { theme } = useContext(themeContext);
+
+   const {setUser}= useContext(userContext)
+
    const iniciarSesion=(event)=>{
       event.preventDefault()
-      const {name, email} = event.target
+      const {email, password} = event.target
+
+      fetch("https://backendtzuzulcode.wl.r.appspot.com/auth/login", {
+         method:"POST",
+         credentials: 'include',
+         headers:{
+               "content-Type":"application/json"
+         },
+         body:JSON.stringify({
+            email:email.value,
+            password:password.value
+         })
+      }).then(res=>res.json())
+      .then(user=>{
+         console.log(user)
+         setUser({logged:true,name:user.data.firstName})
+      }).catch(error=>setUser({logged:false}))
    }
 
     return(
@@ -24,7 +44,7 @@ export default function Login(){
                      <div className="login-logo-key"></div><input className="input-login password" type="password" name="password" placeholder="Clave" required/>
                    </div>
                    <div className="margin-input-logo">
-                       <div></div><button className="btn-login-submit">Ingresar</button>
+                       <button className="btn-login-submit">Ingresar</button>
                    </div>
                 </form>
               </div>

@@ -13,7 +13,6 @@ import { themeContext } from "../context/ThemeContext";
 export default function Home() {
   const { movies } = useContext(moviesContext);
 
-
  
   const { theme, setTheme } = useContext(themeContext);
 
@@ -24,6 +23,7 @@ export default function Home() {
     <div className={theme ? "main__dark" : "main__light"}>
       <Navbar />
       <Slider />
+      
       <br />
       <li>
         <button
