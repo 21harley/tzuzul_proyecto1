@@ -1,4 +1,4 @@
-import React,{createContext, useEffect, useReducer} from 'react';
+import React,{createContext, useEffect, useReducer, useState} from 'react';
 import moviesReducer, { moviesInitialState } from '../reducers/moviesReducer';
 import reviewsReducer, { reviewsInitialState } from '../reducers/reviewsReducer';
 
@@ -10,6 +10,8 @@ export default function MoviesContext({children}) {
     //const [movies,setMovies] = useState(mockup)
     const [reviews,dispatchReviews] = useReducer(reviewsReducer,reviewsInitialState)
     // const [reviews,dispatchReviews] = useState([])
+    const [filtered, setFiltered] = useState([])
+    const [activeGenre, setActiveGenre] = useState(0);
 
     const addReview = (movie,stars,comment)=>{
         setMovies({type:'addStars',movie,stars})
@@ -24,6 +26,7 @@ export default function MoviesContext({children}) {
         .then(data=>{
             console.log(data)
             setMovies({type:"addMovies",movies:data.results})
+            setFiltered({type:"addMovies",movies:data.results})
             //setMovies({type:"addMovies",movies:data})
         })
     },[])
