@@ -33,8 +33,7 @@
   height: 40px;
   width: 260px;
   border-radius: 50px;
-  padding-left: 90px;
-  text-align:start;
+  text-align:center;
   color: var(--Color-text-blanco);
   display: grid;
   place-items: center;
@@ -58,6 +57,7 @@
     width: 260px;
     background-color: var(--Color-rojo);
     border-color:var(--Color-rojo);
+    cursor: pointer;
 }
 .input-login::placeholder,
 .input-registro::placeholder{
