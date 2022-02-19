@@ -3,18 +3,29 @@ import {Link} from 'react-router-dom';
 import '../css/movies.css';
 const image_api = "https://image.tmdb.org/t/p/w500";
 
-const Movie = ({movie:movie}) =>{
-  let {poster_path,title,id}=movie;
-  console.log(movie)
-  return(
-  <div className="movie">
-    <Link className="link__movie" title="Click Detalles" to={"/details/"+id}>
-      <div className="modal__name">Detalles</div>
-      <div className='movie__stars'>{isNaN(movie.rating/movie.numberOfReviews)?0:movie.rating/movie.numberOfReviews}</div>
-      <img class='img' src={image_api + poster_path} alt={title} />
-     </Link>
-  </div>
-  );
+const Movie = ({movie:movie,tipo}) =>{
+  let {poster_path,title,id,stars,numberOfReviews}=movie;
+  console.log(movie,"pelicula",typeof stars,tipo)
+  if(tipo){
+    return(
+      <div className="movie">
+        <Link className="link__movie" title="Click Detalles" to={"/details/"+id}>
+          <div className="modal__name">Detalles</div>
+          <div className='movie__stars'>{Number.isNaN(Number(stars)/Number(numberOfReviews))?0:(stars/numberOfReviews).toFixed(1)}</div>
+          <img class='img' src={image_api + poster_path} alt={title} />
+         </Link>
+      </div>
+      );
+  }else{
+    return(
+      <div className="movie">
+          <div className="modal__name">Detalles</div>
+          <div className='movie__stars'>{Number.isNaN(Number(stars)/Number(numberOfReviews))?0:(stars/numberOfReviews).toFixed(1)}</div>
+          <img class='img' src={image_api + poster_path} alt={title} />
+      </div>
+      );
+  }
+
 }
 
 export default Movie;
