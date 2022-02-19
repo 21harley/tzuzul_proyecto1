@@ -5,6 +5,7 @@ import Movies from "../components/Movies";
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import { themeContext } from "../context/ThemeContext";
+import Filtro from "../components/Filtro";
 
 
 
@@ -12,7 +13,9 @@ import { themeContext } from "../context/ThemeContext";
 
 export default function Home() {
   const { movies } = useContext(moviesContext);
-
+  const { setFiltered} = useContext(moviesContext);
+  
+ 
  
   const { theme, setTheme } = useContext(themeContext);
 
@@ -25,6 +28,7 @@ export default function Home() {
       <Slider />
       
       <br />
+      <Filtro movies={movies} setFiltered={setFiltered} />
       <li>
         <button
           className="btnanimated2"
