@@ -1,4 +1,5 @@
-:root{
+
+html {
     --Color-text-negro:"#000000";
     --Color-text-gris:rgb(204, 204, 204);
     --Color-text-blanco:#FFFFFF;
@@ -7,4 +8,11 @@
     --Color-azul-claro:#11468F;
     --Color-azul-fondo:#041562;
     --Color-azul-opaco:#1A1A40;
+}
+  
+  /* Variables de color si el tema es dark */
+html[data-theme="dark"] {
+    --Color-azul-claro:#7f8081;
+    --Color-azul-fondo:#434344;
+    --Color-azul-opaco:#181818;
 }

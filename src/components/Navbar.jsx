@@ -44,7 +44,7 @@ function Navbar() {
   const handleOnChange = (e) => {
     setSearchTerm(e.target.value);
   };
-  const { theme, setTheme } = useContext(themeContext);
+  const { theme, setTheme ,toggleThemeChange  } = useContext(themeContext);
 
   return (
     <div className={theme ? "main__dark" : "main__light"}>
@@ -76,7 +76,7 @@ function Navbar() {
             <button
               className="btnanimated"
               onClick={() => {
-                setTheme(!theme);
+                toggleThemeChange();
               }}
             >
               Claro/Oscuro
