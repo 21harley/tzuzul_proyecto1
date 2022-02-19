@@ -5,14 +5,15 @@ const image_api = "https://image.tmdb.org/t/p/w500";
 
 const Movie = ({movie:movie,tipo}) =>{
   let {poster_path,title,id,stars,numberOfReviews}=movie;
-  console.log(movie,"pelicula",typeof stars,tipo)
+  //console.log(movie,"pelicula",typeof stars,tipo)
   if(tipo){
     return(
       <div className="movie">
-        <Link className="link__movie" title="Click Detalles" to={"/details/"+id}>
+        <Link className="link__movie" title={title+"\n Click Detalles"} to={"/details/"+id}>
           <div className="modal__name">Detalles</div>
           <div className='movie__stars'>{Number.isNaN(Number(stars)/Number(numberOfReviews))?0:(stars/numberOfReviews).toFixed(1)}</div>
-          <img class='img' src={image_api + poster_path} alt={title} />
+          <img className='img' src={image_api + poster_path} alt={title} />
+          <div className="movie__titulo">{title}</div>
          </Link>
       </div>
       );
@@ -21,7 +22,7 @@ const Movie = ({movie:movie,tipo}) =>{
       <div className="movie">
           <div className="modal__name">Detalles</div>
           <div className='movie__stars'>{Number.isNaN(Number(stars)/Number(numberOfReviews))?0:(stars/numberOfReviews).toFixed(1)}</div>
-          <img class='img' src={image_api + poster_path} alt={title} />
+          <img className='img' src={image_api + poster_path} alt={title} />
       </div>
       );
   }

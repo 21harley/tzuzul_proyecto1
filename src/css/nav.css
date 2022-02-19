@@ -1,3 +1,4 @@
+
 *,
 *::after,
 *::before {
@@ -9,6 +10,7 @@ html {
 }
 body {
   font-size: 1.6rem;
+  transition: 1.5s all;
 }
 
 li {
@@ -42,7 +44,7 @@ a {
   transition: 1s all;
 }
 .nav.active {
-  background-color: var(--Color-azul-fondo);
+  background-color: var(--Color-azul-opaco);
 }
 
 .nav__brand {
@@ -109,7 +111,7 @@ a {
     right: 0;
     height: 93vh;
     width: 50vw;
-    background: var(--Color-azul-fondo);
+    background: var(--Color-azul-opaco);
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;

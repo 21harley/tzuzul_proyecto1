@@ -17,7 +17,7 @@ export default function MoviesContext({children}) {
         // setReviews([...reviews,{id:reviews.length,idMovie:movie.id,comment}])
     }
     //Reto: Cambiar las reviews del estado a reducers
-
+    //https://api.themoviedb.org/3/movie/550?api_key=497e24e0a67f0f133e230dd01041ed6a
     useEffect(()=>{
         fetch("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"/*"https://backendtzuzulcode.wl.r.appspot.com/movies"*/)
         .then(res=>res.json())
