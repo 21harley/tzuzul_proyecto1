@@ -1,11 +1,13 @@
+import react , {useContext} from "react";
 import Footer from "../components/footer";
 import Navbar from "../components/Navbar";
+import { themeContext } from "../context/ThemeContext";
 import './../css/login.css';
 
 export default function Registro(){
-
+    const { theme } = useContext(themeContext);
     return(
-       <div>
+       <div className={theme ? "main__dark" : "main__light"}>
            <Navbar/>
               <div className="margin-form-registro">
               <form className="form-registro">

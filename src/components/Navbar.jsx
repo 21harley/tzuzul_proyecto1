@@ -4,11 +4,8 @@ import { themeContext } from "../context/ThemeContext";
 
 import "./../css/nav.css";
 
-const SEARCH_API =
-  "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
 function Navbar() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [navbar, setNavbar] = useState(false);
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
@@ -32,18 +29,6 @@ function Navbar() {
   };
   window.addEventListener("scroll", changeBackground);
 
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-
-    if (searchTerm) {
-      getMovies(SEARCH_API + searchTerm);
-      searchTerm("");
-    }
-  };
-
-  const handleOnChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
   const { theme, setTheme } = useContext(themeContext);
 
   return (
@@ -62,16 +47,6 @@ function Navbar() {
         </Link>
 
         <ul className={active}>
-          <li className="nav__item">
-            <input
-              onSubmit={handleOnSubmit}
-              className="search"
-              type="search"
-              placeholder="Buscar...."
-              value={searchTerm}
-              onChange={handleOnChange}
-            />
-          </li>
           <li className="nav__item">
             <button
               className="btnanimated"

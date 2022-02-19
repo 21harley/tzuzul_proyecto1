@@ -5,13 +5,16 @@ import App from "./App";
 import MoviesContext from "./context/MoviesContext";
 import ThemeContext from "./context/ThemeContext";
 
+
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeContext>
-      <MoviesContext>
-        <App />
-      </MoviesContext>
-    </ThemeContext>
+    
+      <ThemeContext>
+        <MoviesContext>
+          <App />
+        </MoviesContext>
+      </ThemeContext>
+
   </React.StrictMode>,
   document.getElementById("root")
 );
