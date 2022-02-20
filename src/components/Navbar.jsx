@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams ,Navigate,Link } from "react-router-dom";
 import { themeContext } from "../context/ThemeContext";
 import { userContext } from "../context/UserContext";
 
@@ -10,6 +10,9 @@ function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
+  const [pelicula,setPelicula]=useState("");
+  const [isBusqueda,setIsBusqueda]=useState(false);
+
   const navToggle = () => {
     if (active === "nav__menu") {
       setActive("nav__menu nav__active");
@@ -33,6 +36,14 @@ function Navbar() {
   const { toggleThemeChange,theme  } = useContext(themeContext);
   const {user}= useContext(userContext)
 
+ const changeValor=(e)=> setPelicula(e.target.value);
+
+ const cangeKeyDown=(e)=>{
+  if(e.key==="Enter") setIsBusqueda(!isBusqueda);
+ }
+  
+ if(isBusqueda) return <Navigate to={"/resultados/"+pelicula}/>;
+
   return (
     <div>
       <nav
@@ -49,8 +60,19 @@ function Navbar() {
         </Link>
 
         <ul className={active}>
+          {/*
+                    <p>{user.logged?"Bienvenido "+user.name:"Desconectado"}</p>
+          */}
           <li className="nav__item">
-          <p>{user.logged?"Bienvenido "+user.name:"Desconectado"}</p>
+              <div className="margin__buscar__movie active__input__buscar">
+                <div><input className="input__buscar active__input__buscar" 
+                      placeholder="Buscar pelicula..." type="text" name="nombre"
+                       onChange={(e)=>{changeValor(e)}} 
+                       onKeyDown={(e)=>{cangeKeyDown(e)}}/>
+                       </div>
+                       <div className="boton__buscar" >
+                       </div>
+              </div>
           </li>
           <li className="nav__item">
             <Link to={"/"} className="nav__link">
