@@ -52,7 +52,7 @@ export default function Detalles() {
       <div className="container-Detalles">
       {reviews.map(
         review=>review.idMovie===Number(id)
-        &&<p key={review.id}>{review.comment}</p>)
+        &&<p className='p__comentario' key={review.id}>{review.comment}</p>)
       }
        <div className='margin__review'>
           <div className='div__review'>

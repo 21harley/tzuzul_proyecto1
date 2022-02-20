@@ -156,16 +156,14 @@ a {
   border: none;
   border: 1px solid var(--Color-azul-claro);
   border-radius: 50px;
-  background-color: none;
-  display: flex;
-  justify-content: start;
-  margin: auto;
+  background-color: var(--Color-azul-opaco);
 }
 .active__cambio{
   transition: justify-content 20s;
   justify-content: end;
 }
 .btnanimated{
+  position: relative;
   width: 25px;
   height: 25px;
   border: none;
@@ -176,9 +174,12 @@ a {
   cursor: pointer;
   background-image: url(./../svg/luna.svg);
   background-size: cover;
+  transition: all 2s;
+  left: 0px;
 }
 .active__luna{
   background-image: url(./../svg/sol.svg);
+  left: 45px;
 }
 /* 
 *,

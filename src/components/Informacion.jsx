@@ -10,8 +10,8 @@ export default function Informacion({data,movie}){
  
     let {genres,poster_path,title}=data;
     let [inf,infSet]=useState(data);
-
-    console.log("stado");
+    let valor=Number.isNaN(Number(stars)/Number(numberOfReviews))?0:(stars/numberOfReviews).toFixed(1);
+ 
 
     return(
         <div className="container__informacion" >
@@ -20,7 +20,7 @@ export default function Informacion({data,movie}){
             </div>
             <div className="informacion__body">
                 <h1>{title}</h1>
-                <div className='movie__stars'>{Number.isNaN(Number(stars)/Number(numberOfReviews))?0:(stars/numberOfReviews).toFixed(1)}</div>
+                <div className='movie__stars movie__stars__detalles'><button  className={"btn-start m-starts start-active"} disabled ></button>{valor}</div>
                 <div className="movies__generos">{(inf.genres.length==1)?"Genero:":"Generos:"}<br/>
                    {
                         inf.genres.map((el)=>{
@@ -33,7 +33,7 @@ export default function Informacion({data,movie}){
                         inf.overview
                     }
                 </p>
-                <p className="movies__overview">Fecha Extreno:{inf.release_date}</p>
+                <p className="movies__date">Fecha Extreno:{inf.release_date}</p>
             </div>
         </div>
     );

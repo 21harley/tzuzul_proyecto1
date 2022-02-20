@@ -52,7 +52,76 @@
     height: 10px;
     width: 10px;
 }
-
+.m-starts{
+    position: relative;
+    top: -1px;
+    height: 16px;
+    width: 16px;
+    margin: auto 0 auto 0;
+}
 .start-active{
     background-image: url(/src/svg/estrella.svg);
+}
+.movie__stars,
+.movies__generos
+{
+  padding: 5px;
+}
+    .movie__stars__detalles{
+      display: flex;
+      justify-content: center;
+    }
+.img_poster{
+  width: 80%;
+  margin: auto;
+}
+.informacion__imagen{
+    display: grid;
+    place-items: center;
+}
+.movies__overview{
+    height: 90px;
+}
+.movies__generos,
+.movies__dates
+{
+  padding: 20px;
+}
+@media screen and (max-width: 780px) {
+    .container__informacion{
+      grid-template-columns: 100%;
+      height: 120vh;
+      margin-bottom: 20px;
+
+    }
+    .movies__generos{
+        flex-wrap: wrap;
+    }
+    .movies__generos,
+    .movies__overview,
+    .movies__dates
+    {
+      padding: 20px;
+    }
+    .input__review{
+        width: 90%;
+    }
+    .img_poster{
+        max-width: 280px;
+    }
+    .btn-review{
+        width: 100%;
+    }
+    .p__comentario{
+        width: 100%;
+    }
+}
+
+.p__comentario{
+    background-color: var(--Color-azul-claro);
+    height: 40px;
+    width: 50%;
+    margin: 10px auto 10px auto;
+    padding: 2px;
+    overflow-y: auto;
 }

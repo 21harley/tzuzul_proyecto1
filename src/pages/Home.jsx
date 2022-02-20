@@ -6,10 +6,7 @@ import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import { themeContext } from "../context/ThemeContext";
 import Filtro from "../components/Filtro";
-
-
-
-
+import CargarMasPeliculas from "../components/CargarMasPeliculas";
 
 export default function Home() {
   const { movies } = useContext(moviesContext);
@@ -40,9 +37,9 @@ export default function Home() {
         </button>
       </li>
       <h1>Peliculas Online</h1>
+      <CargarMasPeliculas/>
       {movies != [] ? <Movies movies={movies} /> : "<p>Cargando<p/>"}
       <Footer />
-      
     </div>
   );
 }
