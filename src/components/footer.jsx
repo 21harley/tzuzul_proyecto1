@@ -1,5 +1,6 @@
 import "./../css/footer.css";
-export default function Footer() {
+export default function Footer(){
+
     return(
         <div className="footer">
           <div className="logo-footer"></div>

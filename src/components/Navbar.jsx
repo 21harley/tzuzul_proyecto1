@@ -30,7 +30,7 @@ function Navbar() {
   };
   window.addEventListener("scroll", changeBackground);
 
-  const { toggleThemeChange  } = useContext(themeContext);
+  const { toggleThemeChange,theme  } = useContext(themeContext);
   const {user}= useContext(userContext)
 
   return (
@@ -47,18 +47,10 @@ function Navbar() {
         <Link to={"/"}>
           <div className="logo"></div>
         </Link>
-        <p>{user.logged?"Bienvenido "+user.name:"Desconectado"}</p>
 
         <ul className={active}>
           <li className="nav__item">
-            <button
-              className="btnanimated"
-              onClick={() => {
-                toggleThemeChange();
-              }}
-            >
-              Claro/Oscuro
-            </button>
+          <p>{user.logged?"Bienvenido "+user.name:"Desconectado"}</p>
           </li>
           <li className="nav__item">
             <Link to={"/"} className="nav__link">
@@ -74,6 +66,17 @@ function Navbar() {
             <a href="#" className="nav__link">
               Peliculas
             </a>
+          </li>
+          <li className="nav__item">
+            <div className={"margin__btnanimated "+((theme)?"active__cambio":"")}>
+              <button
+                className={"btnanimated "+((theme)?" active__luna":"")}
+                onClick={() => {
+                  toggleThemeChange();
+                }}
+              >
+              </button>
+            </div>
           </li>
           <li className="nav__item">
             <button className="nav__link nav__button--registro">

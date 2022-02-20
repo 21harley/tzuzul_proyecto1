@@ -1,13 +1,40 @@
 .container__informacion{
+  position: relative;
   padding-top:70px ;
   width:100%;
-  height: 120vh;
   display: grid;
   place-items: center;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 35% 65%;
+  margin-bottom: 10px;
+}
+.container__informacion__cargando{
+  width:100%;
+  display: grid;
+  place-items: center;
+  height: 200vh;
+}
+
+@media screen and (max-width: 780px) {
+  .container__informacion{
+    grid-template-columns: 100%;
+    height: 140vh;
+    margin-bottom: 20px;
+  }
 }
 .img_poster{
     position: relative;
-    width: 100%;
-    height: 100%;
+    max-width: 280px;
+}
+.informacion__body{
+  display: grid;
+  place-items: left;
+}
+.movies__generos{
+  display: flex;
+}
+.generos__item{
+  margin:0 2px 0 2px ;
+}
+.movies__overview{
+  padding: 5px;
 }

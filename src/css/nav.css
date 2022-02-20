@@ -11,6 +11,7 @@ html {
 body {
   font-size: 1.6rem;
   transition: 1.5s all;
+  background-color: var(--Color-azul-opaco);
 }
 
 li {
@@ -44,7 +45,7 @@ a {
   transition: 1s all;
 }
 .nav.active {
-  background-color: var(--Color-azul-opaco);
+  background-color: var(--Color-azul-fondo);
 }
 
 .nav__brand {
@@ -111,7 +112,7 @@ a {
     right: 0;
     height: 93vh;
     width: 50vw;
-    background: var(--Color-azul-opaco);
+    background: var(--Color-azul-fondo);
     flex-direction: column;
     transform: translateX(100%);
     transition: 0.5s ease-in;
@@ -146,6 +147,38 @@ a {
 }
 .nav__link--registro{
   color: var(--Color-text-blanco);
+}
+.margin__btnanimated{
+  position: relative;
+  top: 2px;
+  height: 25;
+  width: 70px;
+  border: none;
+  border: 1px solid var(--Color-azul-claro);
+  border-radius: 50px;
+  background-color: none;
+  display: flex;
+  justify-content: start;
+  margin: auto;
+}
+.active__cambio{
+  transition: justify-content 20s;
+  justify-content: end;
+}
+.btnanimated{
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50px;
+  display: grid;
+  place-items: center;
+  background-color: var(--Color-rojo);
+  cursor: pointer;
+  background-image: url(./../svg/luna.svg);
+  background-size: cover;
+}
+.active__luna{
+  background-image: url(./../svg/sol.svg);
 }
 /* 
 *,

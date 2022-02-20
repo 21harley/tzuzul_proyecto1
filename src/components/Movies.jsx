@@ -7,7 +7,7 @@ export default function Movies({movies}) {
     
     <section className="movie-container">
       
-        {movies.map(movie=><Movie key={movie.id} movie={movie} tipo={true}/>)}
+        {movies.map(movie=><Movie key={movie.id} movie={movie}/>)}
       </section>
   )
 }

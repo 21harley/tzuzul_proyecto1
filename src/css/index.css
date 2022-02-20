@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 @import "/src/css/styleColor.css";
-
+@import "/src/css/svgColor.css";
 * {
   box-sizing: border-box;
 }
@@ -53,8 +53,11 @@ h1 {
   position: relative;
   margin: 0;
   width: 120px;
-  height: 180px;
+  height: 220px;
   text-align: center;
+}
+.link__movie:hover{
+  color: var(--Color-amarillo);
 }
 .movie-header {
   position: absolute;
