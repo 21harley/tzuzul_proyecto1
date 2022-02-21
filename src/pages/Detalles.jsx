@@ -16,14 +16,14 @@ export default function Detalles() {
   const comentario = useRef()
   let [rating,setRating]=useState(0);
   const movie = movies.filter(movie=>movie.id===Number(id))[0]
-  console.log(movie,"pelicula")
+  //console.log(movie,"pelicula")
    
   if(!movie){
     return <Navigate to="/notfound"/>
   }
   
   let {data}=useFetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=04c35731a5ee918f014970082a0088b1`);
-  
+  console.log(data);
   useEffect(()=>{
     window.scroll({
       top: 0,
@@ -39,7 +39,7 @@ export default function Detalles() {
   }
   const startReview=(stars)=>{
     setRating(stars);
-    console.log(consulta(stars,1),"h");
+    //console.log(consulta(stars,1),"h");
   }
 
   const consulta=(a,b)=>(a==b || a>b);

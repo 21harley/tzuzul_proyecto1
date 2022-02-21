@@ -31,7 +31,10 @@ function Navbar() {
       setNavbar(false);
     }
   };
+
   window.addEventListener("scroll", changeBackground);
+
+
 
   const { toggleThemeChange,theme  } = useContext(themeContext);
   const {user}= useContext(userContext)
@@ -79,7 +82,8 @@ function Navbar() {
               Inicio
             </Link>
           </li>
-          <li className="nav__item">
+          {/*
+                   <li className="nav__item">
             <a href="#" className="nav__link">
               Genero
             </a>
@@ -89,6 +93,7 @@ function Navbar() {
               Peliculas
             </a>
           </li>
+          */}
           <li className="nav__item">
             <div className={"margin__btnanimated "+((theme)?"active__cambio":"")}>
               <button
@@ -100,21 +105,25 @@ function Navbar() {
               </button>
             </div>
           </li>
-          <li className="nav__item">
-            <button className="nav__link nav__button--registro">
-              <Link to={"/registro"} className="nav__link--registro">
-                  Registro
-              </Link>
-            </button>
-          </li>
-          <li className="nav__item">
-          <button className="nav__button--entrar">
-
-            <Link to={"/login"} className="nav__link nav__button--entrar">
-              Entrar
-            </Link>
-          </button>
-          </li>
+          {(user.logged)
+            ?<li>{"Bienvenido "+user.name}</li>
+            :<>
+              <li className="nav__item">
+                <button className="nav__link nav__button--registro">
+                  <Link to={"/registro"} className="nav__link--registro">
+                    Registro
+                  </Link>
+                </button>
+              </li>
+              <li className="nav__item">
+                <button className="nav__button--entrar">
+                  <Link to={"/login"} className="nav__link nav__button--entrar">
+                   Entrar
+                  </Link>
+                </button>
+            </li>
+            </>
+          }
         </ul>
         <div onClick={navToggle} className={icon}>
           <div className="line1"></div>

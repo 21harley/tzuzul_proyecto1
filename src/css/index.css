@@ -111,10 +111,14 @@ h1 {
   display: grid;
   place-items: center;
 }
+.margin-btn-pagi{
+  display: flex;
+  width: 260px;  
+}
 .btn-cargar-mas{
   margin: 0 auto 0 auto;
-  max-width: 500px;
-  min-width: 280px;
+  max-width: 30px;
+  min-width: 10px;
   height: 30px;
   background: none;
   border: none;
@@ -122,4 +126,27 @@ h1 {
   background-color: var(--Color-azul-fondo);
   color: var(--Color-text-blanco);
   cursor: pointer;
+}
+.btn-cargar-mas:hover{
+  color: var(--Color-azul-fondo);
+  background-color: var(--Color-text-blanco);
+}
+@media screen and (min-width: 280px) {
+  .movie-container{
+    margin: auto;
+     grid-template-columns: 50% 50%;
+  }
+}
+@media screen and (min-width: 390px) {
+  .movie-container{
+    margin: auto;
+     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 770px) {
+  .movie-container{
+    width: 80%;
+    margin: auto;
+     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
