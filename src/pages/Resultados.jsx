@@ -9,9 +9,8 @@ import "./../css/resultados.css";
 
 export default function Resultados(){
    const {id} = useParams();
-   console.log(id);
+ 
    if(id==undefined){
-      console.log("Hola :v Resultados ss111")
       return <Navigate to="/notfound"/>
     }
     
@@ -23,32 +22,45 @@ export default function Resultados(){
         left: 0,
       });
     },[])
-
-    if(data){
-      return (
+     console.log(data)
+    if(data!=null && data!=undefined){
+       if(data){
+          console.log(data);
+         return (
+            <>
+             <Navbar/>
+             <div className='main-resultados'>
+                 <div>
+                    Carga Completa :D {console.log(data)}
+                    <ul>
+                    {data.Search.map((el)=>{
+                        return <li key={el.imdbID} className="item__resultados">
+                           <div>
+                              <p>Titulo:{el.Title}</p>
+                              <p>Año:{el.Year}</p>
+                           </div>
+                           <div>
+                              <img src={el.Poster} className="img__poster"></img>
+                           </div>
+                        </li>
+                     })}
+                    </ul>
+                  </div>
+             </div>
+             <Footer/>
+            </>
+         )
+       }else{
          <>
-          <Navbar/>
-          <div className='main-resultados'>
-              <div>
-                 Carga Completa :D {console.log(data)}
-                 <ul>
-                 {data.Search.map((el)=>{
-                     return <li key={el.imdbID} className="item__resultados">
-                        <div>
-                           <p>Titulo:{el.Title}</p>
-                           <p>Año:{el.Year}</p>
-                        </div>
-                        <div>
-                           <img src={el.Poster} className="img__poster"></img>
-                        </div>
-                     </li>
-                  })}
-                 </ul>
-               </div>
-          </div>
-          <Footer/>
-         </>
-      )
+         <Navbar/>
+         <div className='main-resultados'>
+            <div className="center-NotFound">
+               <div className="NotFound"></div>
+            </div>
+         </div>
+         <Footer/>
+        </>         
+       }
     }else{
       return (
          <>

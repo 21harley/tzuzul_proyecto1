@@ -2,13 +2,14 @@ import React, {useContext} from "react";
 import Footer from "../components/footer";
 import Navbar from "../components/Navbar";
 import { themeContext } from "../context/ThemeContext";
+import { useParams ,Navigate,Link } from "react-router-dom";
 import { userContext } from "../context/UserContext";
 import './../css/login.css';
 
 export default function Login(){
    const { theme } = useContext(themeContext);
 
-   const {setUser}= useContext(userContext)
+   const {setUser,user}= useContext(userContext)
 
    const iniciarSesion=(event)=>{
       event.preventDefault()
@@ -30,7 +31,7 @@ export default function Login(){
          setUser({logged:true,name:user.data.firstName})
       }).catch(error=>setUser({logged:false}))
    }
-
+   if(user.logged==true) return <Navigate to={"/"}/>;
     return(
        <div className={theme ? "main__dark" : "main__light"}>
            <Navbar/>

@@ -37,12 +37,16 @@ function Navbar() {
 
 
   const { toggleThemeChange,theme  } = useContext(themeContext);
-  const {user}= useContext(userContext)
+  const {setUser,user}= useContext(userContext)
 
  const changeValor=(e)=> setPelicula(e.target.value);
 
  const cangeKeyDown=(e)=>{
   if(e.key==="Enter") setIsBusqueda(!isBusqueda);
+ }
+
+ const cerrarSeccion=()=>{
+   setUser({logged:false});
  }
   
  if(isBusqueda) return <Navigate to={"/resultados/"+pelicula}/>;
@@ -106,7 +110,7 @@ function Navbar() {
             </div>
           </li>
           {(user.logged)
-            ?<li>{"Bienvenido "+user.name}</li>
+            ?<li className="nav__item">User{user.name}</li>
             :<>
               <li className="nav__item">
                 <button className="nav__link nav__button--registro">
@@ -123,6 +127,15 @@ function Navbar() {
                 </button>
             </li>
             </>
+          }
+          {(user.logged)
+            ?<>
+            <li className="nav__item">
+              <button className="nav__link nav__button--registro" onClick={()=>{cerrarSeccion()}}>
+                Cerrar
+              </button>
+            </li>
+          </>:""
           }
         </ul>
         <div onClick={navToggle} className={icon}>
