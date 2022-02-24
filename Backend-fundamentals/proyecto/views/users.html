@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>users</h1>
+    <div id="users"></div>
+
+    <!--Esto se ejecuta en el servidor-->
+    <script>
+        console.log("Hola mundo")
+        //Armando la peticion
+        //Utilizando fetch
+        // fetch: ir y traer informacion
+        fetch("http://localhost:4000/api/users")
+        .then(function(respuesta){
+            console.log(respuesta)
+            return respuesta.json()
+        })
+        .then(function(data){
+            console.log(data)
+            var users = document.getElementById("users")
+            // users.innerHTML = `
+            // <p>Hola</p>
+            // <h3>mensaje....</h3>
+            // `
+            for(var user of data){
+                users.innerHTML = users.innerHTML + `<div>
+                        <p>${user.name}</p>
+                        <p>${user.email}</p>
+
+                    </div>`
+            }
+        })
+
+    </script>
+</body>
+</html>

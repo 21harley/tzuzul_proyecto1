@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+  </head>
+  <body>
+    <h1>Registro</h1>
+    <a href="/">ir a inicio</a>
+    <!-- <form method="post" action="/registro"> -->
+    <form id="formulario" method="POST" action="/registro">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="date" name="birthday" />
+      <button>Enviar</button>
+    </form>
+
+    <script>
+        // const formulario = document.getElementById("formulario")
+
+        // formulario.onsubmit = function(event){
+        //     //Cancelamos el envio
+        //     event.preventDefault()
+        //     const data = {
+        //         name:event.target.name.value,
+        //         email:event.target.email.value ,
+        //         birthday:event.target.birthday.value,
+        //     }
+
+        //     console.log(data)
+
+        //     //se envia informacion
+        // }
+    </script>
+  </body>
+</html>
